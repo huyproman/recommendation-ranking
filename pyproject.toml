@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "personalized-recommender"
+version = "0.1.0"
+description = "Offline MovieLens-1M recommender benchmark: temporal split, full-catalog evaluation, Popularity, Item-KNN, implicit ALS and BPR-MF, offline serving bundle"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {file = "LICENSE"}
+authors = [{ name = "huynq" }]
+dependencies = ["numpy>=2.2,<2.3", "threadpoolctl>=3.6,<3.7"]
+
+[project.optional-dependencies]
+test = ["pytest>=8.3,<8.4"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+personalized_recommender = ["fixtures/synthetic_ml/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
